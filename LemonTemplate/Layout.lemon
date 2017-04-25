@@ -33,7 +33,6 @@
 </head>
 
 <body>
-{% include ':Back/Include:header.html.twig' %}
 <div class="page-container">
     <div class="page-content">
         <div class="sidebar sidebar-main">
