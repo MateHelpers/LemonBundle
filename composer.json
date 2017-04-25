@@ -16,6 +16,6 @@
         }
     ],
     "autoload": {
-      "psr-4": { "Mate\\LemonBundle": "" }
+      "psr-4": { "Mate\\LemonBundle\\": "" }
     }
 }
