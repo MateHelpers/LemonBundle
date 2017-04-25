@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QRGenerator - Dashboard</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
+          type="text/css">
+    <link href="{{ asset('assets_back/css/icons/icomoon/styles.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets_back/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets_back/css/core_2.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets_back/css/core.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets_back/css/components.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets_back/css/colors.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets_back/css/style.css') }}" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+
+    <!-- Core JS files -->
+    <script type="text/javascript" src="{{ asset('assets_back/js/core/libraries/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets_back/js/core/libraries/jquery_ui/widgets.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets_back/js/plugins/loaders/blockui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets_back/js/core/libraries/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets_back/js/plugins/sliders/ion_rangeslider.min.js') }}"></script>
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="{{ asset('assets_back/js/core/app.js') }}"></script>
+    <!-- /theme JS files -->
+    {% block javascript_files %}{% endblock javascript_files %}
+
+</head>
+
+<body>
+{% include ':Back/Include:header.html.twig' %}
+<div class="page-container">
+    <div class="page-content">
+        <div class="sidebar sidebar-main">
+            <div class="sidebar-content">
+                {% include ':Back/Include:sidebar.html.twig' %}
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="page-header page-header-default">
+                {% include ':Back/Include:page_header.html.twig' %}
+            </div>
+
+            <div class="content">
+                {% block body %}{% endblock body %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% block javascripts %}{% endblock javascripts %}
+</body>
+</html>

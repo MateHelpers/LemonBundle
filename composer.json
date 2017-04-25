@@ -1,0 +1,21 @@
+{
+    "name": "mate/lemon-bundle",
+    "description": "Symfony CRUD/Templates generator and creator bundle for Doctrine Entities",
+    "keywords": ["symfony3", "crud", "generator", "template", "layout", "controller", "form", "views"],
+    "website": "https://www.mate.tn",
+    "homepage": "https://github.com/MateHelpers/LemonBundle",
+    "type": "symfony-bundle",
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed Radhi Guennichi",
+            "email": "rg@mate.tn"
+        }
+    ],
+    "autoload": {
+      "psr-4": { "Mate\\LemonBundle": "" }
+    }
+}

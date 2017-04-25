@@ -1,0 +1,8 @@
+services:
+#    mate_lemon.example:
+#        class: Mate\LemonBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    mate_lemon.manager:
+        class: Mate\LemonBundle\Service\LemonService
+        arguments: ["@doctrine.orm.entity_manager", "@kernel", "@filesystem", "%mate.lemon.template.override%"]

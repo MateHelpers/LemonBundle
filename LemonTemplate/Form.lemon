@@ -1,0 +1,33 @@
+<?php
+/**
+ * This file generated automatically with MateLemonBundle Generator
+ * Class: <formClassName> FormType
+ */
+
+namespace <formNamespace>;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type as FormLemonType;
+
+class <formClassName> extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+<formProperties>;
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => '<formDataClass>'
+        ]);
+    }
+
+    public function getBlockPrefix()
+    {
+        return '<formPrefix>';
+    }
+}

@@ -1,0 +1,13 @@
+            <li {% if app.request.attributes.get('_route') starts with '<indexRouteName>' %}class="active"{% endif %}>
+                <a href="#"><i class="icon-users"></i> <span><entityPluralName></span></a>
+                <ul>
+                    <li {% if app.request.attributes.get('_route')  == '<indexRouteName>' %}class="active"{% endif %}>
+                        <a href="{{ path('<indexRouteName>') }}">List <entityPluralName></a>
+                    </li>
+                    <li {% if app.request.attributes.get('_route') == '<createRouteName>' %}class="active"{% endif %}>
+                        <a href="{{ path('<createRouteName>') }}">Create <entityName></a>
+                    </li>
+                </ul>
+            </li>
+
+<restData>

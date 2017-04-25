@@ -1,0 +1,49 @@
+{% extends ':LemonGenerator:layout.html.twig' %}
+
+{% block title %}{{ page }}{% endblock %}
+
+{% block body %}
+    <h6 class="content-group text-semibold">
+        Table
+        <small class="display-block"><code>{{ page }}</code> Page</small>
+    </h6>
+
+    <div class="panel panel-flat">
+        <div class="panel-heading">
+            <h5 class="panel-title">{{ page }}</h5>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table text-size-base">
+                <thead>
+                <tr>
+
+                    <th>#</th>
+<entityThTag>
+                </tr>
+                </thead>
+                <tbody>
+                {% for <entityLowerName> in <entityLowerPluralName> %}
+                    <tr>
+
+                        <td><code>{{ <entityLowerName>.id }}</code></td>
+<entityTdTag>
+                        <td>
+
+                            <div class="btn-group">
+                                <a href="{{ path('<updateRoutePath>', {'<entityLowerName>Id': <entityLowerName>.id}) }}" type="button"
+                                   class="btn bg-slate btn-icon"><i class="icon-pencil4 text-size-small"></i></a>
+                                <a href="{{ path('<deleteRoutePath>', {'<entityLowerName>Id': <entityLowerName>.id}) }}"
+                                   type="button" class="btn bg-danger btn-icon"><i
+                                            class="icon-cross2 text-size-small"
+                                            onclick="return confirm('Delete this record, are you sure?')"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

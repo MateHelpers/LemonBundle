@@ -1,0 +1,117 @@
+<?php
+/**
+ * This file generated automatically with MateLemonBundle Generator
+ * Class: <controllerClassName> Controller
+ */
+
+namespace <controllerNameSpace>;
+
+
+use <entityClass>;
+use <formClass>;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+/**
+ * Class <controllerClassName>
+ * @Route("<controllerGlobalRoute>")
+ */
+class <controllerClassName> extends Controller
+{
+    const NS = [
+        [
+            'name' => 'Change me please to your home page',
+            'path' => '/changeMe',
+        ],
+        [
+            'name' => '<entityPluralName>',
+            'path' => '<controllerGlobalRoute>'
+        ]
+    ];
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Route("<createRoutePath>", name="<createRouteName>")
+     */
+    public function <createAction>(Request $request)
+    {
+        $page = 'Create <entityLowerPluralName>';
+        $entityManager = $this->getDoctrine()->getManager();
+        $<entityLowerName> = new <entityName>();
+
+        $form = $this->createForm(<formClassName>::class, $<entityLowerName>);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($<entityLowerName>);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('<indexRouteName>');
+        }
+
+        return $this->render('<createView>', array(
+            'page' => $page,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @param <entityName> $<entityLowerName>
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Route("<updateRoutePath>", name="<updateRouteName>")
+     */
+    public function <updateAction>(Request $request, <entityName> $<entityLowerName>)
+    {
+        $page = 'Update <entityLowerName>: ' . $<entityLowerName>->getId();
+        $createButton = $this->generateUrl('<createRouteName>');
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $form = $this->createForm(<formClassName>::class, $<entityLowerName>);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('<indexRouteName>');
+        }
+
+        return $this->render('<updateView>', array(
+            'page'              => $page,
+            'createButton'      => $createButton,
+            'form'              => $form->createView(),
+            '<entityLowerName>' => $<entityLowerName>
+        ));
+    }
+
+    /**
+     * @param <entityName> $<entityLowerName>
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("<deleteRoutePath>", name="<deleteRouteName>")
+     */
+    public function <deleteAction>(<entityName> $<entityLowerName>)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($<entityLowerName>);
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('<indexRouteName>');
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("<indexRoutePath>", name="<indexRouteName>")
+     */
+    public function <indexAction>()
+    {
+        $page = '<entityPluralName> list';
+        $createButton = $this->generateUrl('<createRouteName>');
+        $<entityLowerPluralName> = $this->getDoctrine()->getRepository(<entityName>::class)->findAll();
+
+        return $this->render('<indexView>', compact('<entityLowerPluralName>', 'createButton', 'page'));
+    }
+}

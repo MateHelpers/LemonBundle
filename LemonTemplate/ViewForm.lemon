@@ -1,0 +1,50 @@
+{% extends ':LemonGenerator:layout.html.twig' %}
+
+{% block title %}{{ page }}{% endblock %}
+
+{% block javascript_files %}
+    <!-- Include Uniform plugin -->
+    <script type="text/javascript" src="{{ asset('assets/lemon/default/js/plugins/forms/styling/uniform.min.js') }}"></script>
+
+    <!-- Include minified library -->
+    <script type="text/javascript" src="{{ asset('assets/lemon/default/js/plugins/editors/wysihtml5/wysihtml5.min.js') }}"></script>
+
+    <!-- Include toolbar -->
+    <script type="text/javascript" src="{{ asset('assets/lemon/default/js/plugins/editors/wysihtml5/toolbar.js') }}"></script>
+
+    <!-- Include parser rules -->
+    <script type="text/javascript" src="{{ asset('assets/lemon/default/js/plugins/editors/wysihtml5/parsers.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <h5 class="panel-title">{{ page }}<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+                </div>
+
+                <div class="panel-body">
+                    {{ form_start(form) }}
+
+                    <fieldset class="content-group">
+                        <legend class="text-bold">Form Fields</legend>
+                        {{ form_widget(form) }}
+                    </fieldset>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary">Save <i class="icon-arrow-right14 position-right"></i>
+                        </button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+
+    </script>
+{% endblock %}
