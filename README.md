@@ -19,7 +19,7 @@ This bundle requires the following additional package:
 Open a command console, enter your project directory and execute the following command to download the latest version of this bundle:
 
 ``` bash
-$ composer require mate/lemon-bundle
+$ composer require mate/lemon-bundle dev-master
 ```
 
 ### Step 2: Enable the Bundle
