@@ -56,6 +56,10 @@ NOTE: If you want to override the default Lemon generator templates, you have to
 
 After creating and generating your own entities with Doctrine, you should pass the task for the Lemon Generator command.
 
+``` bash
+$ php bin/console mate:lemon:generate:full
+```
+
 The `mate:lemon:generate:full` command generates CRUD for a given **bundle** and **entity**.
 After running this command, you have to just follow the instructions.
 
