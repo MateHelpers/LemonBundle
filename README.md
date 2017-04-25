@@ -61,7 +61,7 @@ $ php bin/console mate:lemon:generate:full
 ```
 
 The `mate:lemon:generate:full` command generates CRUD for a given **bundle** and **entity**.
-After running this command, you have to just follow the instructions.
+After running this command, you just have to follow the instructions.
 
 
 **What you'll get:**
