@@ -16,6 +16,7 @@ namespace Mate\LemonBundle\Element;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Mate\LemonBundle\Helper\Helper;
+use Mate\LemonBundle\Helper\Inflect;
 
 class Entity
 {
@@ -52,14 +53,7 @@ class Entity
 
     public function getPluralName()
     {
-        if (Helper::ends_with($this->getName(), 'y')) {
-            //remove last "y" char
-            $name = substr_replace($this->getName(), "", -1);
-            return $name . 'ies';
-        }
-
-
-        return $this->getName() . 's';
+        return Inflect::pluralize($this->getName());
     }
 
     /**

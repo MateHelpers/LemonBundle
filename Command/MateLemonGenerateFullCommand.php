@@ -145,14 +145,30 @@ class MateLemonGenerateFullCommand extends ContainerAwareCommand
         }
 
 
-        $io->section('Generating Form class...');
-        $lemonManager->generateForm();
+	    $formQuestion =
+		    new ConfirmationQuestion("<question>Do you want to generate the form? [y] </question>", true);
 
-        $io->section('Generating Controller class...');
-        $lemonManager->generateController();
+	    if ($helper->ask($input, $output, $formQuestion)) {
+		    $io->section('Generating Form class...');
+		    $lemonManager->generateForm();
+	    }
 
-        $io->section('Generating views files...');
-        $lemonManager->generateViews();
+	    $controllerQuestion =
+		    new ConfirmationQuestion("<question>Do you want to generate the controller? [y] </question>", true);
+
+	    if ($helper->ask($input, $output, $controllerQuestion)) {
+		    $io->section('Generating Controller class...');
+		    $lemonManager->generateController();
+	    }
+
+
+	    $viewsQuestion =
+		    new ConfirmationQuestion("<question>Do you want to generate views? [y] </question>", true);
+
+	    if ($helper->ask($input, $output, $viewsQuestion)) {
+		    $io->section('Generating views files...');
+		    $lemonManager->generateViews();
+	    }
 
         $io->success('MATE:LEMON:: CRUD generated successfully.');
 

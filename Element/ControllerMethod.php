@@ -54,7 +54,7 @@ class ControllerMethod
 
     public function getEntityPluralName()
     {
-        return strtolower($this->controller->getForm()->getEntity()->getName() . 's');
+        return $this->controller->getForm()->getEntity()->getLowerPluralName();
     }
 
     public function getAction()
