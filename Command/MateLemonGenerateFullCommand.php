@@ -82,7 +82,21 @@ class MateLemonGenerateFullCommand extends ContainerAwareCommand
             return;
         }
 
-        $lemonManager->load($bundle, $entity);
+	    //ask for entity
+	    $controllerFolderQuestion = new Question("<info>Please enter the name of controllers folder: </info>");
+
+	    //validate the entity input
+	    $controllerFolderQuestion->setValidator(function ($value) {
+		    if (trim($value) == '') {
+			    return null;
+		    }
+
+		    return $value;
+	    });
+
+	    $controllerFolder = $helper->ask($input, $output, $controllerFolderQuestion);
+
+        $lemonManager->load($bundle, $entity, compact('controllerFolder'));
 
         $entityElement = $lemonManager->getEntity();
 

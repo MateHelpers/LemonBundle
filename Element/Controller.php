@@ -65,7 +65,7 @@ class Controller implements ElementInterface
 
         /** @var ControllerMethod $method */
         foreach ($this->getMethods() as $method) {
-            if (strtolower($method->getName()) == $name) {
+            if (strtolower($method->getName()) === $name) {
                 return $method;
             }
         }

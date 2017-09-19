@@ -99,7 +99,7 @@ class LemonService
         $this->overrideTemplate = $overrideTemplate;
     }
 
-    public function load($bundleName, $entityName)
+    public function load($bundleName, $entityName, array $data = null)
     {
         $this->isLoaded       = true;
 
@@ -109,7 +109,7 @@ class LemonService
 
         $this->entity         = $this->loadEntity($entityName);
         $this->form           = $this->loadForm();
-        $this->controller     = $this->loadController();
+        $this->controller     = $this->loadController($data);
         $this->views          = $this->loadViews();
         $this->menu           = $this->loadMenu();
         $this->menuPartial    = $this->loadMenuPartial();
@@ -312,11 +312,18 @@ class LemonService
     /**
      * depends on: ($this->bundle, $this->form)
      * priority: 4
+     * @param array|null $data
      * @return Controller
      */
-    private function loadController()
+    private function loadController(array $data = null)
     {
-        $controller = new Controller($this->bundle, $this->form, $this->loadTemplateContent(TemplateHelper::CONTROLLER));
+    	$controllerFolder = array_key_exists('controllerFolder', $data) ? $data['controllerFolder'] : null;
+        $controller       = new Controller(
+					            $this->bundle,
+						        $this->form,
+						        $this->loadTemplateContent(TemplateHelper::CONTROLLER),
+					            $controllerFolder
+					        );
 
         /** @var $methodsArray : Methods names as keys and isRouteContainsId as values */
         $methodsArray = [
